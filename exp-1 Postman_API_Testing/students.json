@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "Anas Ansari",
+    "rollNo": "241704",
+    "course": "AIML ",
+    "email": "anas@student.edu"
+  },
+  {
+    "id": 2,
+    "name": "Rohan Mehta",
+    "rollNo": "CS102",
+    "course": "Computer Science",
+    "email": "rohan@student.edu"
+  },
+  {
+    "id": 4,
+    "name": "Danish",
+    "rollNo": "241738",
+    "course": "AIML",
+    "email": "danish@student.edu"
+  },
+  {
+    "id": 5,
+    "name": "Ansab",
+    "rollNo": "241761",
+    "course": "AIML",
+    "email": "ansab@student.edu"
+  },
+  {
+    "id": 6,
+    "name": "Neha Verma",
+    "rollNo": "ME301",
+    "course": "Mechanical",
+    "email": "neha@student.edu"
+  }
+]
