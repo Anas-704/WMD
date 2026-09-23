@@ -9,23 +9,83 @@ import '../sections/journey_section.dart';
 import '../sections/contact_section.dart';
 import '../sections/footer_section.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final ScrollController _scrollController = ScrollController();
+
+  final GlobalKey _homeKey = GlobalKey();
+  final GlobalKey _aboutKey = GlobalKey();
+  final GlobalKey _skillsKey = GlobalKey();
+  final GlobalKey _projectsKey = GlobalKey();
+  final GlobalKey _contactKey = GlobalKey();
+
+  void _scrollTo(GlobalKey key) {
+    final context = key.currentContext;
+
+    if (context != null) {
+      Scrollable.ensureVisible(
+        context,
+        duration: const Duration(milliseconds: 700),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
+        controller: _scrollController,
         child: Column(
           children: [
-            NavbarSection(),
-            HeroSection(),
-            AboutSection(),
-            StackSection(),
-            WorkSection(),
-            JourneySection(),
-            ContactSection(),
-            FooterSection(),
+            NavbarSection(
+              onHome: () => _scrollTo(_homeKey),
+              onAbout: () => _scrollTo(_aboutKey),
+              onSkills: () => _scrollTo(_skillsKey),
+              onProjects: () => _scrollTo(_projectsKey),
+              onContact: () => _scrollTo(_contactKey),
+            ),
+
+            Container(
+              key: _homeKey,
+              child: const HeroSection(),
+            ),
+
+            Container(
+              key: _aboutKey,
+              child: const AboutSection(),
+            ),
+
+            Container(
+              key: _skillsKey,
+              child: const StackSection(),
+            ),
+
+            Container(
+              key: _projectsKey,
+              child: const WorkSection(),
+            ),
+
+            const JourneySection(),
+
+            Container(
+              key: _contactKey,
+              child: const ContactSection(),
+            ),
+
+            const FooterSection(),
           ],
         ),
       ),

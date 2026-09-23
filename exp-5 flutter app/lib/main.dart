@@ -14,7 +14,7 @@ class PortfolioApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Mohammad Anas',
-      theme: AppTheme.darkTheme,
+      theme: AppTheme.lightTheme,
       home: const HomeScreen(),
     );
   }
